@@ -27,7 +27,7 @@ public class Neo4jService implements AutoCloseable{
     }
     public static void main( String... args ) throws Exception
     {
-        try ( Neo4jService greeter = new Neo4jService( "bolt://localhost:7687", "neo4j", "zjp5683zjp" ) )
+        try ( Neo4jService greeter = new Neo4jService( "bolt://192.168.1.104:7687", "neo4j", "zjp5683zjp" ) )
         {
             greeter.testquery();
         }
