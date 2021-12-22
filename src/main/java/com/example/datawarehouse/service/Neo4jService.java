@@ -22,5 +22,8 @@ public class Neo4jService{
     public ArrayList<Movie> getMovieByActor(String actor){
         return neo4jRepository.findMovieByActor(actor);
     }
+    public ArrayList<Movie> getMovieByTitle(String title){
+        return neo4jRepository.findMovieByTitle(title);
+    }
 }
 
