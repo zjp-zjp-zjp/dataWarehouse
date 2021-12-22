@@ -24,4 +24,8 @@ public class Neo4jController {
     public ArrayList<Movie> neo4j_findmoviebydirector_post(@RequestParam String director){
         return neo4jService.getMovieByDirector(director);
     }
+    @PostMapping(path = "findmoviebyactor")
+    public ArrayList<Movie> neo4j_findmoviebyactor_post(@RequestParam String actor){
+        return neo4jService.getMovieByActor(actor);
+    }
 }
