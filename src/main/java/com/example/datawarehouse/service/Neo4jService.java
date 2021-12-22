@@ -1,35 +1,22 @@
 package com.example.datawarehouse.service;
-import org.neo4j.driver.AuthTokens;
-import org.neo4j.driver.Driver;
-import org.neo4j.driver.GraphDatabase;
-import org.neo4j.driver.Result;
-import org.neo4j.driver.Session;
 
-import static org.neo4j.driver.Values.parameters;
-public class Neo4jService implements AutoCloseable{
-    private final Driver driver;
-    public Neo4jService( String uri, String user, String password )
-    {
-        driver = GraphDatabase.driver( uri, AuthTokens.basic( user, password ) );
+import com.example.datawarehouse.entity.Movie;
+import com.example.datawarehouse.repository.Neo4jRepository;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
+
+@Service
+public class Neo4jService{
+    @Resource
+    private final Neo4jRepository neo4jRepository;
+
+    public Neo4jService(Neo4jRepository neo4jRepository) {
+        this.neo4jRepository = neo4jRepository;
     }
-    @Override
-    public void close() throws Exception
-    {
-        driver.close();
-    }
-    public void testquery()
-    {
-        try ( Session session = driver.session() )
-        {
-            Result result = session.run( "MATCH (n:Actor) RETURN n LIMIT 1");
-            System.out.println(result.single().get("n").get("name").asString());
-        }
-    }
-    public static void main( String... args ) throws Exception
-    {
-        try ( Neo4jService greeter = new Neo4jService( "bolt://192.168.1.104:7687", "neo4j", "zjp5683zjp" ) )
-        {
-            greeter.testquery();
-        }
+    public ArrayList<Movie> getMovieByDirector(String director){
+        return neo4jRepository.findMovieByDirector(director);
     }
 }
