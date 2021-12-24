@@ -32,5 +32,8 @@ public class Neo4jService{
     public ArrayList<Movie> getMovieByCustomer_rating(float customer_rating){
         return neo4jRepository.findMovieByCustomer_rating(customer_rating);
     }
+    public ArrayList<Movie> getMovieByImdbRating(float imdbRating){
+        return neo4jRepository.findMovieByImdbRating(imdbRating);
+    }
 }
 

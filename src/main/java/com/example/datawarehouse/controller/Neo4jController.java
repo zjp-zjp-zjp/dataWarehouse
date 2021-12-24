@@ -40,4 +40,8 @@ public class Neo4jController {
     public ArrayList<Movie> neo4j_findmoviebycustomer_rating_post(@RequestParam float customer_rating){
         return neo4jService.getMovieByCustomer_rating(customer_rating);
     }
+    @PostMapping(path = "findmoviebyimdbrating")
+    public ArrayList<Movie> neo4j_findmoviebyimdbrating_post(@RequestParam float imdb_rating){
+        return neo4jService.getMovieByImdbRating(imdb_rating);
+    }
 }
