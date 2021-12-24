@@ -32,4 +32,8 @@ public class Neo4jController {
     public ArrayList<Movie> neo4j_findmoviebytitle_post(@RequestParam String title){
         return neo4jService.getMovieByTitle(title);
     }
+    @PostMapping(path = "findmoviebytype")
+    public ArrayList<Movie> neo4j_findmoviebytype_post(@RequestParam String type){
+        return neo4jService.getMovieByType(type);
+    }
 }
