@@ -5,6 +5,7 @@ import com.example.datawarehouse.repository.Neo4jRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +28,9 @@ public class Neo4jService{
     }
     public ArrayList<Movie> getMovieByType(String type){
         return neo4jRepository.findMovieByType(type);
+    }
+    public ArrayList<Movie> getMovieByCustomer_rating(float customer_rating){
+        return neo4jRepository.findMovieByCustomer_rating(customer_rating);
     }
 }
 
