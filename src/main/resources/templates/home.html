@@ -131,22 +131,22 @@
                         <div class="card-body">
                             <h4 class="card-title">关系型数据库</h4>
                             <div class="button-icon">
-                                <button type="button" class="btn mb-1 btn-primary">Add to cart <span
+                                <button type="button" class="btn mb-1 btn-primary" onclick="ModalForYear()">根据year查询<span
                                         class="btn-icon-right"><i class="fa fa-shopping-cart"></i></span>
                                 </button>
-                                <button type="button" class="btn mb-1 btn-info">Add to wishlist <span
+                                <button type="button" class="btn mb-1 btn-info" onclick="ModalForYearAndMonth()">根据year和month查询<span
                                         class="btn-icon-right"><i class="fa fa-heart"></i></span>
                                 </button>
-                                <button type="button" class="btn mb-1 btn-danger">Remove <span class="btn-icon-right"><i
+                                <button type="button" class="btn mb-1 btn-danger" onclick="FindMovieByYearAndQuarterly()">根据year和quarterly查询 <span class="btn-icon-right"><i
                                         class="fa fa-close"></i></span>
                                 </button>
-                                <button type="button" class="btn mb-1 btn-secondary">Sent message <span
+                                <button type="button" class="btn mb-1 btn-secondary" onclick="FindMovieVersionsByName()">根据名字查找电影版本<span
                                         class="btn-icon-right"><i class="fa fa-envelope"></i></span>
                                 </button>
-                                <button type="button" class="btn mb-1 btn-warning">Add bookmark <span
+                                <button type="button" class="btn mb-1 btn-warning" onclick="FindMovieBydirectorDirectorName()">根据导演name查找电影<span
                                         class="btn-icon-right"><i class="fa fa-star"></i></span>
                                 </button>
-                                <button type="button" class="btn mb-1 btn-success">Seccess <span class="btn-icon-right"><i
+                                <button type="button" class="btn mb-1 btn-success" onclick="FindMovieBydirectorActorName()">根据演员的name查找电影<span class="btn-icon-right"><i
                                         class="fa fa-check"></i></span>
                                 </button>
                             </div>
@@ -158,16 +158,16 @@
                         <div class="card-body">
                             <h4 class="card-title">分布式数据库</h4>
                             <div class="button-icon">
-                                <button type="button" class="btn mb-1 btn-rounded btn-primary"><span
-                                        class="btn-icon-left"><i class="fa fa-shopping-cart color-primary"></i> </span>Buy
+                                <button type="button" class="btn mb-1 btn-rounded btn-primary" onclick="FindRelationshipOfDirectorAndActorByNum()">根据输入最小值查找导演演员之间合作次数超过这一数字的<span
+                                        class="btn-icon-left"><i class="fa fa-shopping-cart color-primary"></i> </span>
                                 </button>
-                                <button type="button" class="btn mb-1 btn-rounded btn-info"><span class="btn-icon-left"><i
+                                <button type="button" class="btn mb-1 btn-rounded btn-info" onclick="FindRelationshipOfActorAndActorByNum()">根据查找演员之间合作次数<span class="btn-icon-left"><i
                                         class="fa fa-plus color-info"></i> </span>Add
                                 </button>
-                                <button type="button" class="btn mb-1 btn-rounded btn-danger"><span
+                                <button type="button" class="btn mb-1 btn-rounded btn-danger" onclick="FindMovieCountByType()">根据电影类型type查找电影<span
                                         class="btn-icon-left"><i class="fa fa-envelope color-danger"></i> </span>Email
                                 </button>
-                                <button type="button" class="btn mb-1 btn-rounded btn-secondary"><span
+                                <button type="button" class="btn mb-1 btn-rounded btn-secondary" onclick="FindMovieCountByGrade()">根据最低评分grade查找电影<span
                                         class="btn-icon-left"><i class="fa fa-share-alt color-secondary"></i> </span>Share
                                 </button>
                                 <button type="button" class="btn mb-1 btn-rounded btn-warning"><span
@@ -223,6 +223,8 @@
 <!--**********************************
     Modal
 ***********************************-->
+
+<!--  根据year来查询电影数目  -->
 <div class="col-lg-12">
     <div class="bootstrap-modal">
         <div class="modal fade" id="ModalForYear">
@@ -233,7 +235,7 @@
                     </div>
                     <div class="modal-body">
                         <h5>请输入您需要查询的年份(例如2021)</h5>
-                        <form th:action="@{/query}" method="post">
+                        <form th:action="@{/FindMovieByYear}" method="post">
                             <div class="form-group">
                                 <label for="recipient-name" class="col-form-label">year:</label>
                                 <input type="text" class="form-control" id="recipient-name" name="year">
@@ -251,7 +253,359 @@
         </div>
     </div>
 </div>
+
+<!--  根据year和month来查询电影数目  -->
+<div class="col-lg-12">
+    <div class="bootstrap-modal">
+        <div class="modal fade" id="ModalForYearAndMonth">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">进行查询</h5>
+                    </div>
+                    <div class="modal-body">
+                        <h5>请输入您需要查询的年份和月份(例如2021 12)</h5>
+                        <form th:action="@{/FindMovieByYearAndMonth}" method="post">
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">year:</label>
+                                <label>
+                                    <input type="text" class="form-control"  name="year">
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">month:</label>
+                                <label>
+                                    <input type="text" class="form-control"  name="month">
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--  根据year和quarterly来查询电影数目  -->
+<div class="col-lg-12">
+    <div class="bootstrap-modal">
+        <div class="modal fade" id="FindMovieByYearAndQuarterly">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">进行查询</h5>
+                    </div>
+                    <div class="modal-body">
+                        <h5>请输入您需要查询的年份和季度(例如2021 3)</h5>
+                        <form th:action="@{/FindMovieByYearAndQuarterly}" method="post">
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">year:</label>
+                                <label>
+                                    <input type="text" class="form-control"  name="year">
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">quarterly:</label>
+                                <label>
+                                    <input type="text" class="form-control"  name="quarterly">
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--  根据电影名称来查询电影版本  -->
+<div class="col-lg-12">
+    <div class="bootstrap-modal">
+        <div class="modal fade" id="FindMovieVersionsByName">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">进行查询</h5>
+                    </div>
+                    <div class="modal-body">
+                        <h5>请输入您需要查询的电影名称</h5>
+                        <form th:action="@{/FindMovieVersionsByName}" method="post">
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">name:</label>
+                                <label>
+                                    <input type="text" class="form-control"  name="name">
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--  根据导演名称来查询电影数量  -->
+<div class="col-lg-12">
+    <div class="bootstrap-modal">
+        <div class="modal fade" id="FindMovieBydirectorDirectorName">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">进行查询</h5>
+                    </div>
+                    <div class="modal-body">
+                        <h5>请输入您需要查询的导演名称</h5>
+                        <form th:action="@{/FindMovieBydirectorDirectorName}" method="post">
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">directorName:</label>
+                                <label>
+                                    <input type="text" class="form-control"  name="directorName">
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--  根据演员名称来查询电影数量  -->
+<div class="col-lg-12">
+    <div class="bootstrap-modal">
+        <div class="modal fade" id="FindMovieBydirectorActorName">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">进行查询</h5>
+                    </div>
+                    <div class="modal-body">
+                        <h5>请输入您需要查询的演员名称</h5>
+                        <form th:action="@{/FindMovieBydirectorActorName}" method="post">
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">ActorName:</label>
+                                <label>
+                                    <input type="text" class="form-control"  name="ActorName">
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--  根据num名称来查询导演演员合作次数  -->
+<div class="col-lg-12">
+    <div class="bootstrap-modal">
+        <div class="modal fade" id="FindRelationshipOfDirectorAndActorByNum">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">进行查询</h5>
+                    </div>
+                    <div class="modal-body">
+                        <h5>请输入您需要查询的导演演员合作次数最小值</h5>
+                        <form th:action="@{/FindRelationshipOfDirectorAndActorByNum}" method="post">
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">num:</label>
+                                <label>
+                                    <input type="text" class="form-control"  name="num">
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--  根据num来查询演员和演员的合作  -->
+<div class="col-lg-12">
+    <div class="bootstrap-modal">
+        <div class="modal fade" id="FindRelationshipOfActorAndActorByNum">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">进行查询</h5>
+                    </div>
+                    <div class="modal-body">
+                        <h5>请输入您需要查询的演员之间合作次数最小值</h5>
+                        <form th:action="@{/FindRelationshipOfActorAndActorByNum}" method="post">
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">num:</label>
+                                <label>
+                                    <input type="text" class="form-control"  name="num">
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--  根据type来查询电影的数量  -->
+<div class="col-lg-12">
+    <div class="bootstrap-modal">
+        <div class="modal fade" id="FindMovieCountByType">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">进行查询</h5>
+                    </div>
+                    <div class="modal-body">
+                        <h5>请输入您需要查询的电影的类型</h5>
+                        <form th:action="@{/FindMovieCountByType}" method="post">
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">type:</label>
+                                <label>
+                                    <input type="text" class="form-control"  name="type">
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--  根据grade来查询电影的数量  -->
+<div class="col-lg-12">
+    <div class="bootstrap-modal">
+        <div class="modal fade" id="FindMovieCountByGrade">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">进行查询</h5>
+                    </div>
+                    <div class="modal-body">
+                        <h5>请输入您需要查询的电影的评分的最小值</h5>
+                        <form th:action="@{/FindMovieCountByGrade}" method="post">
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">grade:</label>
+                                <label>
+                                    <input type="text" class="form-control"  name="grade">
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <!--   调用modal的函数    -->
+<script>
+    function ModalForYear() {
+        $('#ModalForYear').modal('show');
+    }
+</script>
+<script>
+    function ModalForYearAndMonth() {
+        $('#ModalForYearAndMonth').modal('show');
+    }
+</script>
+<script>
+    function FindMovieByYearAndQuarterly() {
+        $('#FindMovieByYearAndQuarterly').modal('show');
+    }
+</script>
+<script>
+    function FindMovieVersionsByName() {
+        $('#FindMovieVersionsByName').modal('show');
+    }
+</script>
+<script>
+    function FindMovieBydirectorDirectorName() {
+        $('#FindMovieBydirectorDirectorName').modal('show');
+    }
+</script>
+<script>
+    function FindMovieBydirectorActorName() {
+        $('#FindMovieBydirectorActorName').modal('show');
+    }
+</script>
+<script>
+    function FindRelationshipOfDirectorAndActorByNum() {
+        $('#FindRelationshipOfDirectorAndActorByNum').modal('show');
+    }
+</script>
+<script>
+    function FindRelationshipOfActorAndActorByNum() {
+        $('#FindRelationshipOfActorAndActorByNum').modal('show');
+    }
+</script>
+<script>
+    function FindMovieCountByType() {
+        $('#FindMovieCountByType').modal('show');
+    }
+</script>
+<script>
+    function FindMovieCountByGrade() {
+        $('#FindMovieCountByGrade').modal('show');
+    }
+</script>
 <script>
     function func1() {
         $('#ModalForYear').modal('show');
