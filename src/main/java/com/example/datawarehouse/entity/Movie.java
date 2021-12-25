@@ -15,16 +15,16 @@ public class Movie {
     private String customer_rating;
     private String pages;
     private String Language;
-    private String  PackageDimensions;
+    private String PackageDimensions;
     private String Subtitles;
-    private String  IsDiscontinuedByManufacturer;
+    private String IsDiscontinuedByManufacturer;
     private String Director;
     private String Actors;
     private String AspectRatio;
     private String ProductDimensions;
-    private String  Itemmodelnumber;
-    private String  Dubbed;
-    private String  Releasedate;
+    private String Itemmodelnumber;
+    private String Dubbed;
+    private String Releasedate;
 
     public Movie() {
     }
