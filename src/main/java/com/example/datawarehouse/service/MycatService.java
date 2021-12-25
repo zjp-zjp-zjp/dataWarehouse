@@ -89,6 +89,166 @@ public class MycatService {
         return maps;
     }
 
+    /**
+     *
+     * @param year month
+     * @return count of the movie
+     * @apiNote :count(formatedate)这样更加快
+     */
+    public List<Map<String, Object>> FindMovieByYearAndMonth(String year,String month){
+        String sql="SELECT count(*)  FROM movie_date where DATE_FORMAT(FormatDate,'%Y')=? and DATE_FORMAT(FormatDate,'%m')=?";
+        List<Map<String, Object>> maps;
+        Object[] objects = new Object[2];
+        objects[0] = year;
+        objects[1] = month;
+        maps = jdbcTemplate.queryForList(sql, objects);
+        return maps;
+    }
 
+    /**
+     *
+     * @param year quarterly
+     * @return count of the movie
+     */
+    public List<Map<String, Object>> FindMovieByYearAndQuarterly(String year,String quarterly){
+        String sql="SELECT count(*)  FROM movie_date where DATE_FORMAT(FormatDate,'%Y')=? " +
+                "and DATE_FORMAT(FormatDate,'%m')=? " +
+                "or DATE_FORMAT(FormatDate,'%m')=? " +
+                "or DATE_FORMAT(FormatDate,'%m')=? ";
+        int a=1;
+        try  {
+            a = 3*Integer.parseInt(quarterly);
+        }  catch  (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        List<Map<String, Object>> maps;
+        Object[] objects = new Object[4];
+        objects[0] = year;
+        objects[1] = a;
+        objects[2] = a+1;
+        objects[3] = a+2;
+        maps = jdbcTemplate.queryForList(sql, objects);
+        return maps;
+    }
+
+    /**
+     *
+     * @param name
+     * @return count of the movie version
+     */
+    public List<Map<String, Object>> FindMovieVersionsByName(String name){
+        String sql="select count(title) as count from details where title=?";
+        List<Map<String, Object>> maps;
+        Object[] objects = new Object[1];
+        objects[0] = name;
+        maps = jdbcTemplate.queryForList(sql, objects);
+        return maps;
+    }
+
+    /**
+     *
+     * @param directorName
+     * @return count of the movie num
+     */
+    public List<Map<String, Object>> FindMovieBydirectorDirectorName(String directorName){
+        String sql="select name,count(name) as count\n" +
+                "from movie_director\n" +
+                "where name=?";
+        List<Map<String, Object>> maps;
+        Object[] objects = new Object[1];
+        objects[0] = directorName;
+        maps = jdbcTemplate.queryForList(sql, objects);
+        return maps;
+    }
+
+    /**
+     *
+     * @param ActorName
+     * @return count of the movie num
+     */
+    public List<Map<String, Object>> FindMovieBydirectorActorName(String ActorName){
+        String sql="select name,count(name) as count\n" +
+                "from movie_actor\n" +
+                "where name=?";
+        List<Map<String, Object>> maps;
+        Object[] objects = new Object[1];
+        objects[0] = ActorName;
+        maps = jdbcTemplate.queryForList(sql, objects);
+        return maps;
+    }
+
+    /**
+     *
+     * @param num
+     * @return list of the connection relationship more than num
+     */
+    public List<Map<String, Object>> FindRelationshipOfDirectorAndActorByNum(String num){
+        String sql="select actor,director \n" +
+                "from actor_director \n" +
+                "where count >=?\n";
+        List<Map<String, Object>> maps;
+        Object[] objects = new Object[1];
+        objects[0] = num;
+        maps = jdbcTemplate.queryForList(sql, objects);
+        return maps;
+    }
+
+    /**
+     *
+     * @param num
+     * @return list of the connection relationship more than num
+     */
+    public List<Map<String, Object>> FindRelationshipOfActorAndActorByNum(String num){
+        String sql="select actor as actor1,actor_1 as actor2 \n" +
+                "from actors_actors \n" +
+                "where count >=?\n";
+        List<Map<String, Object>> maps;
+        Object[] objects = new Object[1];
+        objects[0] = num;
+        maps = jdbcTemplate.queryForList(sql, objects);
+        return maps;
+    }
+
+    /**
+     *
+     * @param type
+     * @return list of the movie by type
+     */
+    public List<Map<String, Object>> FindMovieCountByType(String type){
+        String sql="Select count(*) from details where type like concat('%',?,'%')";
+        List<Map<String, Object>> maps;
+        Object[] objects = new Object[1];
+        objects[0] = type;
+        maps = jdbcTemplate.queryForList(sql, objects);
+        return maps;
+    }
+
+    /**
+     *
+     * @param grade
+     * @return list of the movie by grade
+     */
+    public List<Map<String, Object>> FindMovieCountByGrade(String grade){
+        String sql="Select count(asin) from details where customer_rating > ?";
+        List<Map<String, Object>> maps;
+        Object[] objects = new Object[1];
+        objects[0] = grade;
+        maps = jdbcTemplate.queryForList(sql, objects);
+        return maps;
+    }
+
+    /**
+     *
+     * @param Positive
+     * @return list of the movie by Positive reviews
+     */
+    public List<Map<String, Object>> FindMovieCountByPositiveReviews(Integer Positive){
+        String sql="";
+        List<Map<String, Object>> maps;
+        Object[] objects = new Object[1];
+        objects[0] = Positive;
+        maps = jdbcTemplate.queryForList(sql, objects);
+        return maps;
+    }
 
 }
