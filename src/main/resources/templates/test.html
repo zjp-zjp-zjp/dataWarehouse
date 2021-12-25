@@ -131,7 +131,7 @@
                         <div class="card-body">
                             <h4 class="card-title">关系型数据库</h4>
                             <div class="button-icon">
-                                <button type="button" class="btn mb-1 btn-primary">test<span
+                                <button type="button" class="btn mb-1 btn-primary" onclick="func1()">test<span
                                         class="btn-icon-right"><i class="fa fa-shopping-cart"></i></span>
                                 </button>
                             </div>
@@ -172,21 +172,15 @@
                     </div>
                     <div class="modal-body">
                         <h5>请输入您需要查询的年份(例如2021)</h5>
-                        <form>
+                        <form th:action="@{/query}" method="post">
                             <div class="form-group">
                                 <label for="recipient-name" class="col-form-label">year:</label>
-                                <input type="text" class="form-control" id="recipient-name">
+                                <input type="text" class="form-control" id="recipient-name" name="year">
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">submit</button>
                             </div>
                         </form>
-                        <hr>
-                        <h5>结果</h5>
-                        <p><a href="#" class="tooltip-test text-primary" data-toggle="tooltip" title="Told you!"></a>
-                        <div id="result">result</div>
-                        </p>
-
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
@@ -197,7 +191,9 @@
     </div>
 </div>
 <script>
-    $('#ModalForYear').modal('show');
+    function func1() {
+        $('#ModalForYear').modal('show');
+    }
 </script>
 </body>
 

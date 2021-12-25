@@ -44,25 +44,25 @@
     <!--仅仅记录 SQL 语句，会将占位符替换为实际的参数  如果使用jdbc.sqltiming记录sql执行时间,
     将jdbc.sqlonly 设置为OFF, 否则sql将会输出两遍-->
     <logger name="jdbc.sqlonly" level="OFF">
-        <appender-ref ref="CONSOLE" />
-        <appender-ref ref="FILE" />
+<!--        <appender-ref ref="CONSOLE" />-->
+<!--        <appender-ref ref="FILE" />-->
     </logger>
     <!--除了 ResultSet 之外的所有JDBC调用信息，篇幅较长-->
-    <logger name="jdbc.audit" level="OFF">
-        <appender-ref ref="CONSOLE" />
-        <appender-ref ref="FILE" />
-    </logger>
+<!--    <logger name="jdbc.audit" level="OFF">-->
+<!--        <appender-ref ref="CONSOLE" />-->
+<!--        <appender-ref ref="FILE" />-->
+<!--    </logger>-->
     <!--包含 ResultSet 的信息，输出篇幅较长-->
-    <logger name="jdbc.resultset" level="DEBUG">
-        <appender-ref ref="CONSOLE" />
-        <appender-ref ref="FILE" />
-    </logger>
+<!--    <logger name="jdbc.resultset" level="DEBUG">-->
+<!--        <appender-ref ref="CONSOLE" />-->
+<!--        <appender-ref ref="FILE" />-->
+<!--    </logger>-->
 
     <!--输出了 Connection 的 open、close 等信息-->
-    <logger name="jdbc.connection" level="OFF">
-        <appender-ref ref="CONSOLE" />
-        <appender-ref ref="FILE" />
-    </logger>
+<!--    <logger name="jdbc.connection" level="OFF">-->
+<!--        <appender-ref ref="CONSOLE" />-->
+<!--        <appender-ref ref="FILE" />-->
+<!--    </logger>-->
     <!--包含 SQL 语句实际的执行时间-->
     <logger name="jdbc.sqltiming" level="DEBUG">
         <appender-ref ref="CONSOLE" />
