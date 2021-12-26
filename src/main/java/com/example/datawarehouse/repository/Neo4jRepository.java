@@ -4,12 +4,8 @@ import org.neo4j.driver.Record;
 import org.neo4j.driver.*;
 import org.springframework.stereotype.Repository;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -286,6 +282,9 @@ public class Neo4jRepository implements AutoCloseable {
         }
         return results;
     }
+//    public List<Map<String,Object>> groupFinding(String year,String month,String quarterly,String name,String directorName,String ActorName,String num,String type,String grade,String Positive){
+//
+//    }
 }
 //    public ArrayList<Movie> findMovieByImdbRating(float imdbRating){
 //        Session session=driver.session();
