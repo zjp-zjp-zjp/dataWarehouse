@@ -4,7 +4,10 @@ import org.neo4j.driver.Record;
 import org.neo4j.driver.*;
 import org.springframework.stereotype.Repository;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,69 +26,93 @@ public class Neo4jRepository implements AutoCloseable {
     {
         driver.close();
     }
-//    public Date calculateDate(String origin){
-//        String month;
-//        String day;
-//        String year;
-//        String temp[]=origin.split(", ");
-//        year=temp[1];
-//        String temp0[]=temp[0].split(" ");
-//        day=temp0[1];
-//        switch (temp0[0]){
-//            case "January":{
-//                month="1";
-//                break;
-//            }
-//            case "Febrary":{
-//                month="2";
-//                break;
-//            }
-//            case "March":{
-//                month="3";
-//                break;
-//            }
-//            case "April":{
-//                month="4";
-//                break;
-//            }
-//            case "May":{
-//                month="5";
-//                break;
-//            }
-//            case "June":{
-//                month="6";
-//                break;
-//            }
-//            case "July":{
-//                month="7";
-//                break;
-//            }
-//            case "August":{
-//                month="8";
-//                break;
-//            }
-//            case "September":{
-//                month="9";
-//                break;
-//            }
-//            case "October":{
-//                month="10";
-//                break;
-//            }
-//            case "November":{
-//                month="11";
-//                break;
-//            }
-//            case "December":{
-//                month="12";
-//                break;
-//            }
-//            default:{
-//                month="";
-//                break;
-//            }
-//        }
-//    }
+    public String getmonth(LocalDate date){
+        System.out.println(date);
+        switch (date.getMonthValue()){
+            case 1:{
+                return "January";
+            }
+            case 2:{
+                return "Febrary";
+            }
+            case 3:{
+                return "March";
+            }
+            case 4:{
+                return "April";
+            }
+            case 5:{
+                return "May";
+            }
+            case 6:{
+                return "June";
+            }
+            case 7:{
+                return "July";
+            }
+            case 8:{
+                return "August";
+            }
+            case 9:{
+                return "September";
+            }
+            case 10:{
+                return "October";
+            }
+            case 11:{
+                return "November";
+            }
+            case 12:{
+                return "December";
+            }
+            default:{
+                return "";
+            }
+        }
+    }
+    public String getmonth(String month){
+        switch (Integer.parseInt(month)){
+            case 1:{
+                return "January";
+            }
+            case 2:{
+                return "Febrary";
+            }
+            case 3:{
+                return "March";
+            }
+            case 4:{
+                return "April";
+            }
+            case 5:{
+                return "May";
+            }
+            case 6:{
+                return "June";
+            }
+            case 7:{
+                return "July";
+            }
+            case 8:{
+                return "August";
+            }
+            case 9:{
+                return "September";
+            }
+            case 10:{
+                return "October";
+            }
+            case 11:{
+                return "November";
+            }
+            case 12:{
+                return "December";
+            }
+            default:{
+                return "";
+            }
+        }
+    }
     public List<Map<String,Object>> findMovieByDirector(String director){
         Session session=driver.session();
         Result result=session.run("MATCH (m1:Movie) WHERE m1.Director = $director RETURN m1.Director AS name,COUNT(m1) AS count",parameters("director",director));
@@ -226,7 +253,39 @@ public class Neo4jRepository implements AutoCloseable {
         }
         return results;
     }
-
+    public List<Map<String,Object>> findMovieByYear(LocalDate date){
+        Session session=driver.session();
+        Result result=session.run("MATCH (m:Movie) WHERE m.Releasedate CONTAINS $year RETURN $year AS year,COUNT(m) AS count",parameters("year",String.valueOf(date.getYear())));
+        List<Map<String,Object>> results=new ArrayList<>();
+        for (Result it = result; it.hasNext(); ) {
+            Record record = it.next();
+            results.add(record.asMap());
+        }
+        return results;
+    }
+    public List<Map<String,Object>> findMovieByYearAndMonth(LocalDate date){
+        Session session=driver.session();
+        Result result=session.run("MATCH (m:Movie) WHERE m.Releasedate CONTAINS $year AND m.Releasedate CONTAINS $month RETURN $year AS year,$month AS month,COUNT(m) AS count",parameters("year",String.valueOf(date.getYear()),"month",getmonth(date)));
+        List<Map<String,Object>> results=new ArrayList<>();
+        for (Result it = result; it.hasNext(); ) {
+            Record record = it.next();
+            results.add(record.asMap());
+        }
+        return results;
+    }
+    public List<Map<String,Object>> findMovieByYearAndQuarterly(String year,String quarterly){
+        Session session=driver.session();
+        String month1=String.valueOf(3*Integer.parseInt(quarterly)-2);
+        String month2=String.valueOf(3*Integer.parseInt(quarterly)-1);
+        String month3=String.valueOf(3*Integer.parseInt(quarterly));
+        Result result=session.run("MATCH (m:Movie) WHERE m.Releasedate CONTAINS $year AND m.Releasedate CONTAINS $month1 OR m.Releasedate CONTAINS $month2 OR m.Releasedate CONTAINS $month3 RETURN $year AS year,$quarterly AS quarterly,COUNT(m) AS count",parameters("year",year,"month1",getmonth(month1),"month2",getmonth(month2),"month3",getmonth(month3),"quarterly",quarterly));
+        List<Map<String,Object>> results=new ArrayList<>();
+        for (Result it = result; it.hasNext(); ) {
+            Record record = it.next();
+            results.add(record.asMap());
+        }
+        return results;
+    }
 }
 //    public ArrayList<Movie> findMovieByImdbRating(float imdbRating){
 //        Session session=driver.session();

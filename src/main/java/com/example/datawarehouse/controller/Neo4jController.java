@@ -8,10 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 @RestController
 @RequestMapping(path = "neo4j")
@@ -245,6 +244,82 @@ public class Neo4jController {
         long startMilliSec = 0;
         startMilliSec = System.currentTimeMillis();
         List<Map<String,Object>> results=neo4jService.getMovieWithPositiveComment();
+        long endMilliSec = 0;
+        endMilliSec = System.currentTimeMillis();
+        // 打印花费时间
+        Long time = (endMilliSec - startMilliSec);
+        Set<String> keys = new HashSet<>();
+        if (results != null) {
+            List<Map<String, Object>> temps = results.subList(0, 1);
+            for (Map<String, Object> temp : temps) {
+                keys = temp.keySet();
+            }
+        }
+        m.addObject("time", time);
+        m.addObject("keys", keys);
+        m.addObject("results", results);
+        m.setViewName("result");
+        return m;
+    }
+    @PostMapping(path = "findmoviebyyear")
+    public ModelAndView neo4j_findmoviebyyear_post(@RequestParam String date){
+        date=date+"-11-11";
+        ModelAndView m = new ModelAndView();
+        // 开始时间
+        long startMilliSec = 0;
+        startMilliSec = System.currentTimeMillis();
+        LocalDate _date=LocalDate.parse(date);
+        List<Map<String,Object>> results=neo4jService.getMovieByYear(_date);
+        long endMilliSec = 0;
+        endMilliSec = System.currentTimeMillis();
+        // 打印花费时间
+        Long time = (endMilliSec - startMilliSec);
+        Set<String> keys = new HashSet<>();
+        if (results != null) {
+            List<Map<String, Object>> temps = results.subList(0, 1);
+            for (Map<String, Object> temp : temps) {
+                keys = temp.keySet();
+            }
+        }
+        m.addObject("time", time);
+        m.addObject("keys", keys);
+        m.addObject("results", results);
+        m.setViewName("result");
+        return m;
+    }
+    @PostMapping(path = "findmoviebyyearandmonth")
+    public ModelAndView neo4j_findmoviebyyearandmonth_post(@RequestParam String date){
+        date=date+"-11";
+        ModelAndView m = new ModelAndView();
+        // 开始时间
+        long startMilliSec = 0;
+        startMilliSec = System.currentTimeMillis();
+        LocalDate _date=LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-M-d"));
+        List<Map<String,Object>> results=neo4jService.getMovieByYearAndMonth(_date);
+        long endMilliSec = 0;
+        endMilliSec = System.currentTimeMillis();
+        // 打印花费时间
+        Long time = (endMilliSec - startMilliSec);
+        Set<String> keys = new HashSet<>();
+        if (results != null) {
+            List<Map<String, Object>> temps = results.subList(0, 1);
+            for (Map<String, Object> temp : temps) {
+                keys = temp.keySet();
+            }
+        }
+        m.addObject("time", time);
+        m.addObject("keys", keys);
+        m.addObject("results", results);
+        m.setViewName("result");
+        return m;
+    }
+    @PostMapping(path = "findmoviebyyearandquarterly")
+    public ModelAndView neo4j_findmoviebyyearandquarterly_post(@RequestParam String year,@RequestParam String quarterly){
+        ModelAndView m = new ModelAndView();
+        // 开始时间
+        long startMilliSec = 0;
+        startMilliSec = System.currentTimeMillis();
+        List<Map<String,Object>> results=neo4jService.getMovieByYearAndQuarterly(year,quarterly);
         long endMilliSec = 0;
         endMilliSec = System.currentTimeMillis();
         // 打印花费时间
