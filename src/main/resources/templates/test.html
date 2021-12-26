@@ -130,31 +130,324 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
+
                     <h4 class="card-title">查询表单</h4>
-                    <div class="basic-form">
-                        <form th:action="@{/FindMovieByYear}" method="post">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <input type="checkbox">
-                                    </div>
-                                </div>
-                                <input type="text" class="form-control" placeholder="请输入年份" name="year">
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" name="check1">
                             </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary">submit</button>
+                        </div>
+                        <input type="text" class="form-control" placeholder="year" name="year">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" name="check2">
                             </div>
-                        </form>
+                        </div>
+                        <input type="text" class="form-control" placeholder="month" name="month">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" name="check3">
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="quarterly" name="quarterly">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" name="check4">
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="movieName" name="movieName">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" name="check5">
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="actorName" name="actorName">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" name="check6">
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="DirectorName" name="DirectorName">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" name="check7">
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="actorName1" name="actorName1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" name="check8">
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="num" name="num">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" name="check9">
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="type" name="type">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" name="check10">
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="grade" name="grade">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" name="check11">
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Positive" name="Positive">
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-primary" type="submit" onclick="sendMessage()">submit</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- #/ container -->
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">查询结果</h4>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered zero-configuration">
+                                    <thead>
+                                    <tr>
+                                        <th>关系型数据库</th>
+                                        <th>分布式数据库</th>
+                                        <th>关系型数据库</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td id="result1">
+                                        </td>
+                                        <td id="result2">
+                                        </td>
+                                        <td id="result3">
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-    <!--**********************************
-        Content body end
-    ***********************************-->
+    <!-- #/ container -->
 </div>
+<!--**********************************
+    Content body end
+***********************************-->
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function inspection() {
+        var dom= $("input:checkbox");
+
+        if (dom.slice(1,2).is(':checked')) {
+            dom.slice(2).prop("disabled", true)
+        }
+        else if(dom.slice(2,3).is(':checked')) {
+            dom.slice(1,2).prop("disabled", true)
+            dom.slice(3).prop("disabled", true)
+        }
+        else if(dom.slice(3,4).is(':checked')) {
+            dom.slice(0,3).prop("disabled", true)
+            dom.slice(4).prop("disabled", true)
+        }
+        else if(dom.slice(4,5).is(':checked')) {
+            dom.slice(0,4).prop("disabled", true)
+            dom.slice(5,8).prop("disabled", true)
+            dom.end().prop("disabled", true)
+        }
+        else if(dom.slice(5,6).is(':checked')) {
+            dom.slice(0,5).prop("disabled", true)
+            dom.slice(6,8).prop("disabled", true)
+            dom.end().prop("disabled", true)
+        }
+        else if(dom.slice(6,7).is(':checked')) {
+            dom.slice(0,4).prop("disabled", true)
+            dom.slice(7,11).prop("disabled", true)
+        }
+        else if(dom.slice(7,8).is(':checked')) {
+            dom.slice(0,7).prop("disabled", true)
+            dom.slice(8,11).prop("disabled", true)
+        }
+        else if(dom.end().is(':checked')) {
+            dom.slice(0,10).prop("disabled", true)
+        }
+        else{
+            dom.prop("disabled", false)
+        }
+
+        setTimeout("inspection()", 10)
+    }
+    inspection()
+
+</script>
+<script>
+    function check() {
+        if ($("input:checkbox[name=check1]").is(':checked')) {
+            var year = $('input[name="year"]').val();
+            alert(year)
+        }
+        if ($("input:checkbox[name=check2]").is(':checked')) {
+            var month = $('input[name="month"]').val();
+            alert(month)
+        }
+        if ($("input:checkbox[name=check3]").is(':checked')) {
+            var quarterly = $('input[name="quarterly"]').val();
+            alert(quarterly)
+        }
+        if ($("input:checkbox[name=check4]").is(':checked')) {
+            var movieName = $('input[name="movieName"]').val();
+            alert(movieName)
+        }
+        if ($("input:checkbox[name=check5]").is(':checked')) {
+            var actorName = $('input[name="actorName"]').val();
+            alert(actorName)
+        }
+        if ($("input:checkbox[name=check6]").is(':checked')) {
+            var DirectorName = $('input[name="DirectorName"]').val();
+            alert(DirectorName)
+        }
+        if ($("input:checkbox[name=check7]").is(':checked')) {
+            var actorName1 = $('input[name="actorName1"]').val();
+            alert(actorName1)
+        }
+        if ($("input:checkbox[name=check8]").is(':checked')) {
+            var num = $('input[name="num"]').val();
+            alert(num)
+        }
+        if ($("input:checkbox[name=check9]").is(':checked')) {
+            var type = $('input[name="type"]').val();
+            alert(type)
+        }
+        if ($("input:checkbox[name=check10]").is(':checked')) {
+            var grade = $('input[name="grade"]').val();
+            alert(grade)
+        }
+        if ($("input:checkbox[name=check11]").is(':checked')) {
+            var Positive = $('input[name="Positive"]').val();
+            alert(Positive)
+        }
+    }
+</script>
+<script>
+    function sendMessage() {
+        year='';
+        month='';
+        quarterly='';
+        movieName='';
+        actorName='';
+        DirectorName='';
+        actorName1='';
+        num='';
+        type='';
+        grade='';
+        Positive='';
+        //参数获取
+        if ($("input:checkbox[name=check1]").is(':checked')) {
+            var year = $('input[name="year"]').val();
+        }
+        if ($("input:checkbox[name=check2]").is(':checked')) {
+            var month = $('input[name="month"]').val();
+        }
+        if ($("input:checkbox[name=check3]").is(':checked')) {
+            var quarterly = $('input[name="quarterly"]').val();
+        }
+        if ($("input:checkbox[name=check4]").is(':checked')) {
+            var movieName = $('input[name="movieName"]').val();
+        }
+        if ($("input:checkbox[name=check5]").is(':checked')) {
+            var actorName = $('input[name="actorName"]').val();
+        }
+        if ($("input:checkbox[name=check6]").is(':checked')) {
+            var DirectorName = $('input[name="DirectorName"]').val();
+        }
+        if ($("input:checkbox[name=check7]").is(':checked')) {
+            var actorName1 = $('input[name="actorName1"]').val();
+        }
+        if ($("input:checkbox[name=check8]").is(':checked')) {
+            var num = $('input[name="num"]').val();
+        }
+        if ($("input:checkbox[name=check9]").is(':checked')) {
+            var type = $('input[name="type"]').val();
+        }
+        if ($("input:checkbox[name=check10]").is(':checked')) {
+            var grade = $('input[name="grade"]').val();
+        }
+        if ($("input:checkbox[name=check11]").is(':checked')) {
+            var Positive = $('input[name="Positive"]').val();
+        }
+        //前端传递参数为JSON对象
+
+        var message = {
+            year: year,
+            month: month,
+            quarterly: quarterly,
+            movieName: movieName,
+            actorName: actorName,
+            DirectorName:DirectorName ,
+            actorName1:actorName1,
+            num: num,
+            type:type ,
+            grade: grade,
+            Positive:Positive
+        }
+        $.ajax({
+            type: 'POST',
+            url: '/integratedQuery',
+            data: message,         //前端传递参数为JSON对象
+            dataType: 'JSON',   //后端返回的数据类型为JSON
+            success: function (data) {
+                document.getElementById("result1").innerHTML=data[0];
+                document.getElementById("result2").innerHTML=data[1];
+                document.getElementById("result3").innerHTML=data[2];
+            }
+        })
+    }
+</script>
 <!--**********************************
     Main wrapper end
 ***********************************-->
