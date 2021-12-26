@@ -39,5 +39,8 @@ public class Neo4jService{
     public ArrayList<Cooperate> getRelationBetActorAndActor(int count){
         return neo4jRepository.findActorToActor(count);
     }
+    public ArrayList<Cooperate> getRelationBetDirectorAndActor(int count){
+        return neo4jRepository.findDirectorToActor(count);
+    }
 }
 

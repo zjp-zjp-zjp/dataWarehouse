@@ -49,4 +49,8 @@ public class Neo4jController {
     public ArrayList<Cooperate> neo4j_findrelationbetweenactorandactor_post(@RequestParam int count){
         return neo4jService.getRelationBetActorAndActor(count);
     }
+    @PostMapping(path = "findrelationbetweendirectorandactor")
+    public ArrayList<Cooperate> neo4j_findrelationbetweendirectorandactor(@RequestParam int count){
+        return neo4jService.getRelationBetDirectorAndActor(count);
+    }
 }

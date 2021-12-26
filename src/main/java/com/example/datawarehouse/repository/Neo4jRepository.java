@@ -94,4 +94,14 @@ public class Neo4jRepository implements AutoCloseable {
         }
         return relations;
     }
+    public ArrayList<Cooperate> findDirectorToActor(int count){
+        Session session=driver.session();
+        ArrayList<Cooperate> relations = new ArrayList<Cooperate>();
+        Result result=session.run("MATCH p=(d:Director)-[r:director_cooperate_with_actor]->(a:Actor) WHERE toInteger(r.count)>$count RETURN d,a,r",parameters("count",count));
+        for (Result it = result; it.hasNext(); ) {
+            Record record = it.next();
+            relations.add(new Cooperate(record.get("d").get("name").asString(), record.get("a").get("name").asString(), Integer.parseInt(record.get("r").get("count").asString())));
+        }
+        return relations;
+    }
 }
