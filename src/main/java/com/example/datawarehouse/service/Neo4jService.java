@@ -1,5 +1,6 @@
 package com.example.datawarehouse.service;
 
+import com.example.datawarehouse.entity.Cooperate;
 import com.example.datawarehouse.entity.Movie;
 import com.example.datawarehouse.repository.Neo4jRepository;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,9 @@ public class Neo4jService{
     }
     public ArrayList<Movie> getMovieByImdbRating(float imdbRating){
         return neo4jRepository.findMovieByImdbRating(imdbRating);
+    }
+    public ArrayList<Cooperate> getRelationBetActorAndActor(int count){
+        return neo4jRepository.findActorToActor(count);
     }
 }
 

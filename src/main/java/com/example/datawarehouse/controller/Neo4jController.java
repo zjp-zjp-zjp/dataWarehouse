@@ -1,5 +1,6 @@
 package com.example.datawarehouse.controller;
 
+import com.example.datawarehouse.entity.Cooperate;
 import com.example.datawarehouse.entity.Movie;
 import com.example.datawarehouse.service.Neo4jService;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -43,5 +44,9 @@ public class Neo4jController {
     @PostMapping(path = "findmoviebyimdbrating")
     public ArrayList<Movie> neo4j_findmoviebyimdbrating_post(@RequestParam float imdb_rating){
         return neo4jService.getMovieByImdbRating(imdb_rating);
+    }
+    @PostMapping(path = "findrelationbetweenactorandactor")
+    public ArrayList<Cooperate> neo4j_findrelationbetweenactorandactor_post(@RequestParam int count){
+        return neo4jService.getRelationBetActorAndActor(count);
     }
 }
