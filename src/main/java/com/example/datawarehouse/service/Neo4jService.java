@@ -1,14 +1,9 @@
 package com.example.datawarehouse.service;
 
-import com.example.datawarehouse.entity.Cooperate;
-import com.example.datawarehouse.entity.Movie;
 import com.example.datawarehouse.repository.Neo4jRepository;
-import org.neo4j.driver.Result;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
