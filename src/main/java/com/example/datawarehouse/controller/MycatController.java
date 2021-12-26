@@ -30,6 +30,13 @@ public class MycatController {
         return m;
     }
 
+    @GetMapping(path = "/")
+    public ModelAndView testhhtml() {
+        ModelAndView m = new ModelAndView();
+        m.setViewName("test");
+        return m;
+    }
+
     //调试的页面
     @GetMapping(path = "/test")
     public ModelAndView test() {
@@ -54,7 +61,7 @@ public class MycatController {
         m.addObject("time", time);
         m.addObject("keys", keys);
         m.addObject("results", results);
-        m.setViewName("result");
+        m.setViewName("temp");
         return m;
     }
 
