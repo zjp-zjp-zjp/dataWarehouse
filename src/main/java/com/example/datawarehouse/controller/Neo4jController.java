@@ -22,12 +22,12 @@ public class Neo4jController {
         this.neo4jService = neo4jService;
     }
     @PostMapping(path = "findmoviebydirector")
-    public ModelAndView neo4j_findmoviebydirector_post(@RequestParam String director){
+    public ModelAndView neo4j_findmoviebydirector_post(@RequestParam String directorName){
         ModelAndView m = new ModelAndView();
         // 开始时间
         long startMilliSec = 0;
         startMilliSec = System.currentTimeMillis();
-        List<Map<String,Object>> results=neo4jService.getMovieByDirector(director);
+        List<Map<String,Object>> results=neo4jService.getMovieByDirector(directorName);
         long endMilliSec = 0;
         endMilliSec = System.currentTimeMillis();
         // 打印花费时间
@@ -46,12 +46,12 @@ public class Neo4jController {
         return m;
     }
     @PostMapping(path = "findmoviebyactor")
-    public ModelAndView neo4j_findmoviebyactor_post(@RequestParam String actor){
+    public ModelAndView neo4j_findmoviebyactor_post(@RequestParam String ActorName){
         ModelAndView m = new ModelAndView();
         // 开始时间
         long startMilliSec = 0;
         startMilliSec = System.currentTimeMillis();
-        List<Map<String,Object>> results=neo4jService.getMovieByActor(actor);
+        List<Map<String,Object>> results=neo4jService.getMovieByActor(ActorName);
         long endMilliSec = 0;
         endMilliSec = System.currentTimeMillis();
         // 打印花费时间
@@ -94,12 +94,12 @@ public class Neo4jController {
         return m;
     }
     @PostMapping(path = "findmoviebytitle")
-    public ModelAndView neo4j_findmoviebytitle_post(@RequestParam String title){
+    public ModelAndView neo4j_findmoviebytitle_post(@RequestParam String name){
         ModelAndView m = new ModelAndView();
         // 开始时间
         long startMilliSec = 0;
         startMilliSec = System.currentTimeMillis();
-        List<Map<String,Object>> results=neo4jService.getMovieByTitle(title);
+        List<Map<String,Object>> results=neo4jService.getMovieByTitle(name);
         long endMilliSec = 0;
         endMilliSec = System.currentTimeMillis();
         // 打印花费时间
@@ -142,12 +142,12 @@ public class Neo4jController {
         return m;
     }
     @PostMapping(path = "findmoviebycustomer_rating")
-    public ModelAndView neo4j_findmoviebycustomer_rating_post(@RequestParam float customer_rating){
+    public ModelAndView neo4j_findmoviebycustomer_rating_post(@RequestParam String grade){
         ModelAndView m = new ModelAndView();
         // 开始时间
         long startMilliSec = 0;
         startMilliSec = System.currentTimeMillis();
-        List<Map<String,Object>> results=neo4jService.getMovieByCustomer_rating(customer_rating);
+        List<Map<String,Object>> results=neo4jService.getMovieByCustomer_rating(Float.parseFloat(grade));
         long endMilliSec = 0;
         endMilliSec = System.currentTimeMillis();
         // 打印花费时间
@@ -190,12 +190,12 @@ public class Neo4jController {
         return m;
     }
     @PostMapping(path = "findrelationbetweenactorandactor")
-    public ModelAndView neo4j_findrelationbetweenactorandactor_post(@RequestParam int count){
+    public ModelAndView neo4j_findrelationbetweenactorandactor_post(@RequestParam String num){
         ModelAndView m = new ModelAndView();
         // 开始时间
         long startMilliSec = 0;
         startMilliSec = System.currentTimeMillis();
-        List<Map<String,Object>> results=neo4jService.getRelationBetActorAndActor(count);
+        List<Map<String,Object>> results=neo4jService.getRelationBetActorAndActor(Integer.parseInt(num));
         long endMilliSec = 0;
         endMilliSec = System.currentTimeMillis();
         // 打印花费时间
@@ -214,12 +214,12 @@ public class Neo4jController {
         return m;
     }
     @PostMapping(path = "findrelationbetweendirectorandactor")
-    public ModelAndView neo4j_findrelationbetweendirectorandactor_post(@RequestParam int count){
+    public ModelAndView neo4j_findrelationbetweendirectorandactor_post(@RequestParam String num){
         ModelAndView m = new ModelAndView();
         // 开始时间
         long startMilliSec = 0;
         startMilliSec = System.currentTimeMillis();
-        List<Map<String,Object>> results=neo4jService.getRelationBetDirectorAndActor(count);
+        List<Map<String,Object>> results=neo4jService.getRelationBetDirectorAndActor(Integer.parseInt(num));
         long endMilliSec = 0;
         endMilliSec = System.currentTimeMillis();
         // 打印花费时间
@@ -262,13 +262,12 @@ public class Neo4jController {
         return m;
     }
     @PostMapping(path = "findmoviebyyear")
-    public ModelAndView neo4j_findmoviebyyear_post(@RequestParam String date){
-        date=date+"-11-11";
+    public ModelAndView neo4j_findmoviebyyear_post(@RequestParam String year){
         ModelAndView m = new ModelAndView();
         // 开始时间
         long startMilliSec = 0;
         startMilliSec = System.currentTimeMillis();
-        LocalDate _date=LocalDate.parse(date);
+        LocalDate _date=LocalDate.of(Integer.parseInt(year),11,11);
         List<Map<String,Object>> results=neo4jService.getMovieByYear(_date);
         long endMilliSec = 0;
         endMilliSec = System.currentTimeMillis();
@@ -288,13 +287,12 @@ public class Neo4jController {
         return m;
     }
     @PostMapping(path = "findmoviebyyearandmonth")
-    public ModelAndView neo4j_findmoviebyyearandmonth_post(@RequestParam String date){
-        date=date+"-11";
+    public ModelAndView neo4j_findmoviebyyearandmonth_post(@RequestParam String year,@RequestParam String month){
         ModelAndView m = new ModelAndView();
         // 开始时间
         long startMilliSec = 0;
         startMilliSec = System.currentTimeMillis();
-        LocalDate _date=LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-M-d"));
+        LocalDate _date=LocalDate.of(Integer.parseInt(year),Integer.parseInt(month),11);
         List<Map<String,Object>> results=neo4jService.getMovieByYearAndMonth(_date);
         long endMilliSec = 0;
         endMilliSec = System.currentTimeMillis();
