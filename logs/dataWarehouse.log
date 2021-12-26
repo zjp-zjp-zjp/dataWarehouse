@@ -1,0 +1,148 @@
+2021-12-26 10:35:19.186 INFO  org.springframework.boot.StartupInfoLogger.logStarting:55: Starting DataWarehouseApplication using Java 17.0.1 on ZJP-PC with PID 14440 (D:\dataWarehouse\target\classes started by T480 in D:\dataWarehouse)
+2021-12-26 10:35:19.188 INFO  org.springframework.boot.SpringApplication.logStartupProfileInfo:635: No active profile set, falling back to default profiles: default
+2021-12-26 10:35:19.242 INFO  org.springframework.boot.logging.DeferredLog.logTo:255: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-26 10:35:19.243 INFO  org.springframework.boot.logging.DeferredLog.logTo:255: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-26 10:35:19.825 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn:132: Bootstrapping Spring Data Neo4j repositories in DEFAULT mode.
+2021-12-26 10:35:19.836 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn:201: Finished Spring Data repository scanning in 6 ms. Found 0 Neo4j repository interfaces.
+2021-12-26 10:35:20.373 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize:108: Tomcat initialized with port(s): 8080 (http)
+2021-12-26 10:35:20.381 INFO  org.apache.juli.logging.DirectJDKLog.log:173: Starting service [Tomcat]
+2021-12-26 10:35:20.381 INFO  org.apache.juli.logging.DirectJDKLog.log:173: Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-26 10:35:20.480 INFO  org.apache.juli.logging.DirectJDKLog.log:173: Initializing Spring embedded WebApplicationContext
+2021-12-26 10:35:20.481 INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext:290: Root WebApplicationContext: initialization completed in 1236 ms
+2021-12-26 10:35:20.972 INFO  org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping.<init>:53: Adding welcome page: class path resource [static/index.html]
+2021-12-26 10:35:21.100 INFO  org.springframework.boot.autoconfigure.neo4j.Neo4jSpringJclLogging$SpringJclLogger.info:63: Direct driver instance 695033579 created for server address localhost:7687
+2021-12-26 10:35:21.358 INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer.startServer:58: LiveReload server is running on port 35729
+2021-12-26 10:35:21.386 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start:220: Tomcat started on port(s): 8080 (http) with context path ''
+2021-12-26 10:35:21.397 INFO  org.springframework.boot.StartupInfoLogger.logStarted:61: Started DataWarehouseApplication in 2.664 seconds (JVM running for 3.607)
+2021-12-26 10:35:57.951 INFO  org.apache.juli.logging.DirectJDKLog.log:173: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-26 10:35:57.951 INFO  org.springframework.web.servlet.FrameworkServlet.initServletBean:525: Initializing Servlet 'dispatcherServlet'
+2021-12-26 10:35:57.952 INFO  org.springframework.web.servlet.FrameworkServlet.initServletBean:547: Completed initialization in 0 ms
+2021-12-26 10:35:57.985 WARN  org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.logException:208: Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'director' for method parameter type String is not present]
+2021-12-26 10:37:15.625 INFO  org.springframework.boot.autoconfigure.neo4j.Neo4jSpringJclLogging$SpringJclLogger.info:63: Closing driver instance 695033579
+2021-12-26 10:37:28.415 INFO  org.springframework.boot.StartupInfoLogger.logStarting:55: Starting DataWarehouseApplication using Java 17.0.1 on ZJP-PC with PID 268 (D:\dataWarehouse\target\classes started by T480 in D:\dataWarehouse)
+2021-12-26 10:37:28.416 INFO  org.springframework.boot.SpringApplication.logStartupProfileInfo:635: No active profile set, falling back to default profiles: default
+2021-12-26 10:37:28.469 INFO  org.springframework.boot.logging.DeferredLog.logTo:255: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-26 10:37:28.470 INFO  org.springframework.boot.logging.DeferredLog.logTo:255: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-26 10:37:29.079 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn:132: Bootstrapping Spring Data Neo4j repositories in DEFAULT mode.
+2021-12-26 10:37:29.091 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn:201: Finished Spring Data repository scanning in 6 ms. Found 0 Neo4j repository interfaces.
+2021-12-26 10:37:29.625 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize:108: Tomcat initialized with port(s): 8080 (http)
+2021-12-26 10:37:29.633 INFO  org.apache.juli.logging.DirectJDKLog.log:173: Starting service [Tomcat]
+2021-12-26 10:37:29.634 INFO  org.apache.juli.logging.DirectJDKLog.log:173: Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-26 10:37:29.730 INFO  org.apache.juli.logging.DirectJDKLog.log:173: Initializing Spring embedded WebApplicationContext
+2021-12-26 10:37:29.731 INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext:290: Root WebApplicationContext: initialization completed in 1260 ms
+2021-12-26 10:37:30.178 INFO  org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping.<init>:53: Adding welcome page: class path resource [static/index.html]
+2021-12-26 10:37:30.309 INFO  org.springframework.boot.autoconfigure.neo4j.Neo4jSpringJclLogging$SpringJclLogger.info:63: Direct driver instance 1166606150 created for server address localhost:7687
+2021-12-26 10:37:30.555 INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer.startServer:58: LiveReload server is running on port 35729
+2021-12-26 10:37:30.589 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start:220: Tomcat started on port(s): 8080 (http) with context path ''
+2021-12-26 10:37:30.606 INFO  org.springframework.boot.StartupInfoLogger.logStarted:61: Started DataWarehouseApplication in 2.649 seconds (JVM running for 3.557)
+2021-12-26 10:37:51.458 INFO  org.apache.juli.logging.DirectJDKLog.log:173: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-26 10:37:51.459 INFO  org.springframework.web.servlet.FrameworkServlet.initServletBean:525: Initializing Servlet 'dispatcherServlet'
+2021-12-26 10:37:51.460 INFO  org.springframework.web.servlet.FrameworkServlet.initServletBean:547: Completed initialization in 1 ms
+2021-12-26 10:39:26.215 INFO  org.springframework.boot.autoconfigure.neo4j.Neo4jSpringJclLogging$SpringJclLogger.info:63: Closing driver instance 1166606150
+2021-12-26 10:39:34.604 INFO  org.springframework.boot.StartupInfoLogger.logStarting:55: Starting DataWarehouseApplication using Java 17.0.1 on ZJP-PC with PID 15300 (D:\dataWarehouse\target\classes started by T480 in D:\dataWarehouse)
+2021-12-26 10:39:34.605 INFO  org.springframework.boot.SpringApplication.logStartupProfileInfo:635: No active profile set, falling back to default profiles: default
+2021-12-26 10:39:34.652 INFO  org.springframework.boot.logging.DeferredLog.logTo:255: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-26 10:39:34.652 INFO  org.springframework.boot.logging.DeferredLog.logTo:255: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-26 10:39:35.254 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn:132: Bootstrapping Spring Data Neo4j repositories in DEFAULT mode.
+2021-12-26 10:39:35.264 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn:201: Finished Spring Data repository scanning in 6 ms. Found 0 Neo4j repository interfaces.
+2021-12-26 10:39:35.775 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize:108: Tomcat initialized with port(s): 8080 (http)
+2021-12-26 10:39:35.784 INFO  org.apache.juli.logging.DirectJDKLog.log:173: Starting service [Tomcat]
+2021-12-26 10:39:35.784 INFO  org.apache.juli.logging.DirectJDKLog.log:173: Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-26 10:39:35.888 INFO  org.apache.juli.logging.DirectJDKLog.log:173: Initializing Spring embedded WebApplicationContext
+2021-12-26 10:39:35.888 INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext:290: Root WebApplicationContext: initialization completed in 1235 ms
+2021-12-26 10:39:36.349 INFO  org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping.<init>:53: Adding welcome page: class path resource [static/index.html]
+2021-12-26 10:39:36.498 INFO  org.springframework.boot.autoconfigure.neo4j.Neo4jSpringJclLogging$SpringJclLogger.info:63: Direct driver instance 1622199108 created for server address localhost:7687
+2021-12-26 10:39:36.749 INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer.startServer:58: LiveReload server is running on port 35729
+2021-12-26 10:39:36.775 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start:220: Tomcat started on port(s): 8080 (http) with context path ''
+2021-12-26 10:39:36.788 INFO  org.springframework.boot.StartupInfoLogger.logStarted:61: Started DataWarehouseApplication in 2.637 seconds (JVM running for 3.715)
+2021-12-26 10:40:00.790 INFO  org.apache.juli.logging.DirectJDKLog.log:173: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-26 10:40:00.791 INFO  org.springframework.web.servlet.FrameworkServlet.initServletBean:525: Initializing Servlet 'dispatcherServlet'
+2021-12-26 10:40:00.792 INFO  org.springframework.web.servlet.FrameworkServlet.initServletBean:547: Completed initialization in 1 ms
+2021-12-26 10:40:00.845 INFO  com.example.datawarehouse.repository.Neo4jRepository.findMovieByDirector:31: hello
+2021-12-26 10:41:46.330 ERROR org.apache.juli.logging.DirectJDKLog.log:175: Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.neo4j.driver.exceptions.value.Uncoercible: Cannot coerce STRING to Java int] with root cause
+org.neo4j.driver.exceptions.value.Uncoercible: Cannot coerce STRING to Java int
+	at org.neo4j.driver.internal.value.ValueAdapter.asInt(ValueAdapter.java:139)
+	at com.example.datawarehouse.repository.Neo4jRepository.findActorToActor(Neo4jRepository.java:95)
+	at com.example.datawarehouse.repository.Neo4jRepository$$FastClassBySpringCGLIB$$8884c6fa.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:783)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:698)
+	at com.example.datawarehouse.repository.Neo4jRepository$$EnhancerBySpringCGLIB$$75d387ef.findActorToActor(<generated>)
+	at com.example.datawarehouse.service.Neo4jService.getRelationBetActorAndActor(Neo4jService.java:40)
+	at com.example.datawarehouse.controller.Neo4jController.neo4j_findrelationbetweenactorandactor_post(Neo4jController.java:50)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2021-12-26 10:44:41.926 INFO  org.springframework.boot.autoconfigure.neo4j.Neo4jSpringJclLogging$SpringJclLogger.info:63: Closing driver instance 1622199108
+2021-12-26 10:44:49.282 INFO  org.springframework.boot.StartupInfoLogger.logStarting:55: Starting DataWarehouseApplication using Java 17.0.1 on ZJP-PC with PID 15080 (D:\dataWarehouse\target\classes started by T480 in D:\dataWarehouse)
+2021-12-26 10:44:49.283 INFO  org.springframework.boot.SpringApplication.logStartupProfileInfo:635: No active profile set, falling back to default profiles: default
+2021-12-26 10:44:49.332 INFO  org.springframework.boot.logging.DeferredLog.logTo:255: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-26 10:44:49.332 INFO  org.springframework.boot.logging.DeferredLog.logTo:255: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-26 10:44:49.935 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn:132: Bootstrapping Spring Data Neo4j repositories in DEFAULT mode.
+2021-12-26 10:44:49.946 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn:201: Finished Spring Data repository scanning in 6 ms. Found 0 Neo4j repository interfaces.
+2021-12-26 10:44:50.494 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize:108: Tomcat initialized with port(s): 8080 (http)
+2021-12-26 10:44:50.503 INFO  org.apache.juli.logging.DirectJDKLog.log:173: Starting service [Tomcat]
+2021-12-26 10:44:50.503 INFO  org.apache.juli.logging.DirectJDKLog.log:173: Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-26 10:44:50.625 INFO  org.apache.juli.logging.DirectJDKLog.log:173: Initializing Spring embedded WebApplicationContext
+2021-12-26 10:44:50.625 INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext:290: Root WebApplicationContext: initialization completed in 1292 ms
+2021-12-26 10:44:51.076 INFO  org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping.<init>:53: Adding welcome page: class path resource [static/index.html]
+2021-12-26 10:44:51.210 INFO  org.springframework.boot.autoconfigure.neo4j.Neo4jSpringJclLogging$SpringJclLogger.info:63: Direct driver instance 279167342 created for server address localhost:7687
+2021-12-26 10:44:51.474 INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer.startServer:58: LiveReload server is running on port 35729
+2021-12-26 10:44:51.503 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start:220: Tomcat started on port(s): 8080 (http) with context path ''
+2021-12-26 10:44:51.515 INFO  org.springframework.boot.StartupInfoLogger.logStarted:61: Started DataWarehouseApplication in 2.674 seconds (JVM running for 3.665)
+2021-12-26 10:44:56.709 INFO  org.apache.juli.logging.DirectJDKLog.log:173: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-26 10:44:56.710 INFO  org.springframework.web.servlet.FrameworkServlet.initServletBean:525: Initializing Servlet 'dispatcherServlet'
+2021-12-26 10:44:56.711 INFO  org.springframework.web.servlet.FrameworkServlet.initServletBean:547: Completed initialization in 1 ms
+2021-12-26 10:47:52.847 INFO  org.springframework.boot.autoconfigure.neo4j.Neo4jSpringJclLogging$SpringJclLogger.info:63: Closing driver instance 279167342
