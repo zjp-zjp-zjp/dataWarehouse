@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+import java.util.Date;
 
 @RestController
 @RequestMapping
@@ -654,14 +655,46 @@ public class TotalController {
             String type,
             String grade,
             String Positive
-    ) {
+    ) throws ParseException {
         String[] results = new String[3];
-//if(year!=""&&month!=""&&quarterly!=""&&movieName!=""&&actorName!=""&&DirectorName!=""&&actorName1!=""&&num!=""&&type!=""&&grade!=""&&Positive!="")
-
-        results[0] = "1";
+        String sql = "select count(*) from details where ";
+        String[] MONTH = new String[]{"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+        if (!year.equals(""))
+            sql += "Releasedate like '%" + year + "%' and ";
+        if (!month.equals("")) {
+            sql += "Releasedate like '%" + MONTH[Integer.parseInt(month) - 1] + "%' and ";
+        }
+        if (!movieName.equals("")) {
+            sql += "title like '%" + movieName + "%' and ";
+        }
+        if (!actorName.equals("")) {
+            sql += "actor like '%" + actorName + "%' and ";
+        }
+        if (!DirectorName.equals("")) {
+            sql += "Director like '%" + DirectorName + "%' and ";
+        }
+        if (!type.equals("")) {
+            sql += "type like '%" + type + "%' and ";
+        }
+        if (!grade.equals("")) {
+            sql += "customer_rating > " + grade + " and ";
+        }
+        sql = sql.substring(0, sql.length() - 5);
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://47.101.197.145:3306/user_db", "root", "password123A.");
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery(sql);
+            while (resultSet.next()) {
+                results[0] = resultSet.getString(1);
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
         results[1] = "1";
         results[2] = neo4jService.getAll(year,month,quarterly,movieName,actorName,DirectorName,actorName1,num,type,grade,Positive);
         return List.of(results);
-    }
 
+    }
 }
