@@ -34,17 +34,19 @@ public class TotalController {
         this.mycatService = mycatService;
         this.mysqlService = mysqlService;
     }
+
     @GetMapping
     public ModelAndView home() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("home");
         return modelAndView;
     }
+
     @PostMapping(path = "/FindMovieByYear")
     public ModelAndView FindMovieByYear(@RequestParam("year") String year) {
         ModelAndView m = new ModelAndView();
         List<Map<String, Object>> results1 = mysqlService.FindMovieByYear(year);
-        List<Map<String, Object>> temps = results1.subList(1,2);
+        List<Map<String, Object>> temps = results1.subList(1, 2);
         Set<String> keys1 = temps.get(0).keySet();
         m.addObject("time1", results1.get(0).get("time"));
         m.addObject("keys1", keys1);
@@ -52,8 +54,8 @@ public class TotalController {
 
         long startMilliSec1 = 0;
         startMilliSec1 = System.currentTimeMillis();
-        LocalDate _date=LocalDate.of(Integer.parseInt(year),11,11);
-        List<Map<String,Object>> results2=neo4jService.getMovieByYear(_date);
+        LocalDate _date = LocalDate.of(Integer.parseInt(year), 11, 11);
+        List<Map<String, Object>> results2 = neo4jService.getMovieByYear(_date);
         long endMilliSec1 = 0;
         endMilliSec1 = System.currentTimeMillis();
         // 打印花费时间
@@ -99,15 +101,16 @@ public class TotalController {
     ) {
         ModelAndView m = new ModelAndView();
         List<Map<String, Object>> results1 = mysqlService.FindMovieByYearAndMonth(year, month);
-        List<Map<String, Object>> temps = results1.subList(1,2);
+        List<Map<String, Object>> temps = results1.subList(1, 2);
         Set<String> keys1 = temps.get(0).keySet();
         m.addObject("time1", results1.get(0).get("time"));
         m.addObject("keys1", keys1);
         m.addObject("results1", results1);
 
         long startMilliSec1 = 0;
-        startMilliSec1 = System.currentTimeMillis();LocalDate _date=LocalDate.of(Integer.parseInt(year),Integer.parseInt(month),11);
-        List<Map<String,Object>> results2=neo4jService.getMovieByYearAndMonth(_date);
+        startMilliSec1 = System.currentTimeMillis();
+        LocalDate _date = LocalDate.of(Integer.parseInt(year), Integer.parseInt(month), 11);
+        List<Map<String, Object>> results2 = neo4jService.getMovieByYearAndMonth(_date);
         long endMilliSec1 = 0;
         endMilliSec1 = System.currentTimeMillis();
         // 打印花费时间
@@ -126,7 +129,7 @@ public class TotalController {
         long startMilliSec = 0;
         startMilliSec = System.currentTimeMillis();
         // 中间功能代码块
-        List<Map<String, Object>> results = mycatService.FindMovieByYearAndMonth(year,month);
+        List<Map<String, Object>> results = mycatService.FindMovieByYearAndMonth(year, month);
         // 结束时间
         long endMilliSec = 0;
         endMilliSec = System.currentTimeMillis();
@@ -153,7 +156,7 @@ public class TotalController {
     ) {
         ModelAndView m = new ModelAndView();
         List<Map<String, Object>> results1 = mysqlService.FindMovieByYearAndQuarterly(year, quarterly);
-        List<Map<String, Object>> temps = results1.subList(1,2);
+        List<Map<String, Object>> temps = results1.subList(1, 2);
         Set<String> keys1 = temps.get(0).keySet();
         m.addObject("time1", results1.get(0).get("time"));
         m.addObject("keys1", keys1);
@@ -161,7 +164,7 @@ public class TotalController {
 
         long startMilliSec1 = 0;
         startMilliSec1 = System.currentTimeMillis();
-        List<Map<String,Object>> results2=neo4jService.getMovieByYearAndQuarterly(year,quarterly);
+        List<Map<String, Object>> results2 = neo4jService.getMovieByYearAndQuarterly(year, quarterly);
         long endMilliSec1 = 0;
         endMilliSec1 = System.currentTimeMillis();
         // 打印花费时间
@@ -180,7 +183,7 @@ public class TotalController {
         long startMilliSec = 0;
         startMilliSec = System.currentTimeMillis();
         // 中间功能代码块
-        List<Map<String, Object>> results = mycatService.FindMovieByYearAndQuarterly(year,quarterly);
+        List<Map<String, Object>> results = mycatService.FindMovieByYearAndQuarterly(year, quarterly);
         // 结束时间
         long endMilliSec = 0;
         endMilliSec = System.currentTimeMillis();
@@ -206,7 +209,7 @@ public class TotalController {
     ) {
         ModelAndView m = new ModelAndView();
         List<Map<String, Object>> results1 = mysqlService.FindMovieVersionsByName(name);
-        List<Map<String, Object>> temps = results1.subList(1,2);
+        List<Map<String, Object>> temps = results1.subList(1, 2);
         Set<String> keys1 = temps.get(0).keySet();
         m.addObject("time1", results1.get(0).get("time"));
         m.addObject("keys1", keys1);
@@ -214,7 +217,7 @@ public class TotalController {
 
         long startMilliSec1 = 0;
         startMilliSec1 = System.currentTimeMillis();
-        List<Map<String,Object>> results2=neo4jService.getMovieByTitle(name);
+        List<Map<String, Object>> results2 = neo4jService.getMovieByTitle(name);
         long endMilliSec1 = 0;
         endMilliSec1 = System.currentTimeMillis();
         // 打印花费时间
@@ -259,7 +262,7 @@ public class TotalController {
     ) {
         ModelAndView m = new ModelAndView();
         List<Map<String, Object>> results1 = mysqlService.FindMovieBydirectorDirectorName(directorName);
-        List<Map<String, Object>> temps = results1.subList(1,2);
+        List<Map<String, Object>> temps = results1.subList(1, 2);
         Set<String> keys1 = temps.get(0).keySet();
         m.addObject("time1", results1.get(0).get("time"));
         m.addObject("keys1", keys1);
@@ -267,7 +270,7 @@ public class TotalController {
 
         long startMilliSec1 = 0;
         startMilliSec1 = System.currentTimeMillis();
-        List<Map<String,Object>> results2=neo4jService.getMovieByDirector(directorName);
+        List<Map<String, Object>> results2 = neo4jService.getMovieByDirector(directorName);
         long endMilliSec1 = 0;
         endMilliSec1 = System.currentTimeMillis();
         // 打印花费时间
@@ -312,7 +315,7 @@ public class TotalController {
     ) {
         ModelAndView m = new ModelAndView();
         List<Map<String, Object>> results1 = mysqlService.FindMovieBydirectorActorName(ActorName);
-        List<Map<String, Object>> temps = results1.subList(1,2);
+        List<Map<String, Object>> temps = results1.subList(1, 2);
         Set<String> keys1 = temps.get(0).keySet();
         m.addObject("time1", results1.get(0).get("time"));
         m.addObject("keys1", keys1);
@@ -320,7 +323,7 @@ public class TotalController {
 
         long startMilliSec1 = 0;
         startMilliSec1 = System.currentTimeMillis();
-        List<Map<String,Object>> results2=neo4jService.getMovieByActor(ActorName);
+        List<Map<String, Object>> results2 = neo4jService.getMovieByActor(ActorName);
         long endMilliSec1 = 0;
         endMilliSec1 = System.currentTimeMillis();
         // 打印花费时间
@@ -365,7 +368,7 @@ public class TotalController {
     ) {
         ModelAndView m = new ModelAndView();
         List<Map<String, Object>> results1 = mysqlService.FindRelationshipOfDirectorAndActorByNum(num);
-        List<Map<String, Object>> temps = results1.subList(1,2);
+        List<Map<String, Object>> temps = results1.subList(1, 2);
         Set<String> keys1 = temps.get(0).keySet();
         m.addObject("time1", results1.get(0).get("time"));
         m.addObject("keys1", keys1);
@@ -373,7 +376,7 @@ public class TotalController {
 
         long startMilliSec1 = 0;
         startMilliSec1 = System.currentTimeMillis();
-        List<Map<String,Object>> results2=neo4jService.getRelationBetDirectorAndActor(Integer.parseInt(num));
+        List<Map<String, Object>> results2 = neo4jService.getRelationBetDirectorAndActor(Integer.parseInt(num));
         long endMilliSec1 = 0;
         endMilliSec1 = System.currentTimeMillis();
         // 打印花费时间
@@ -418,7 +421,7 @@ public class TotalController {
     ) {
         ModelAndView m = new ModelAndView();
         List<Map<String, Object>> results1 = mysqlService.FindRelationshipOfActorAndActorByNum(num);
-        List<Map<String, Object>> temps = results1.subList(1,2);
+        List<Map<String, Object>> temps = results1.subList(1, 2);
         Set<String> keys1 = temps.get(0).keySet();
         m.addObject("time1", results1.get(0).get("time"));
         m.addObject("keys1", keys1);
@@ -426,7 +429,7 @@ public class TotalController {
 
         long startMilliSec1 = 0;
         startMilliSec1 = System.currentTimeMillis();
-        List<Map<String,Object>> results2=neo4jService.getRelationBetDirectorAndActor(Integer.parseInt(num));
+        List<Map<String, Object>> results2 = neo4jService.getRelationBetDirectorAndActor(Integer.parseInt(num));
         long endMilliSec1 = 0;
         endMilliSec1 = System.currentTimeMillis();
         // 打印花费时间
@@ -471,7 +474,7 @@ public class TotalController {
     ) {
         ModelAndView m = new ModelAndView();
         List<Map<String, Object>> results1 = mysqlService.FindMovieCountByType(type);
-        List<Map<String, Object>> temps = results1.subList(1,2);
+        List<Map<String, Object>> temps = results1.subList(1, 2);
         Set<String> keys1 = temps.get(0).keySet();
         m.addObject("time1", results1.get(0).get("time"));
         m.addObject("keys1", keys1);
@@ -479,7 +482,7 @@ public class TotalController {
 
         long startMilliSec1 = 0;
         startMilliSec1 = System.currentTimeMillis();
-        List<Map<String,Object>> results2=neo4jService.getMovieByType(type);
+        List<Map<String, Object>> results2 = neo4jService.getMovieByType(type);
         long endMilliSec1 = 0;
         endMilliSec1 = System.currentTimeMillis();
         // 打印花费时间
@@ -524,7 +527,7 @@ public class TotalController {
     ) {
         ModelAndView m = new ModelAndView();
         List<Map<String, Object>> results1 = mysqlService.FindMovieCountByGrade(grade);
-        List<Map<String, Object>> temps = results1.subList(1,2);
+        List<Map<String, Object>> temps = results1.subList(1, 2);
         Set<String> keys1 = temps.get(0).keySet();
         m.addObject("time1", results1.get(0).get("time"));
         m.addObject("keys1", keys1);
@@ -532,7 +535,7 @@ public class TotalController {
 
         long startMilliSec1 = 0;
         startMilliSec1 = System.currentTimeMillis();
-        List<Map<String,Object>> results2=neo4jService.getMovieByCustomer_rating(Float.parseFloat(grade));
+        List<Map<String, Object>> results2 = neo4jService.getMovieByCustomer_rating(Float.parseFloat(grade));
         long endMilliSec1 = 0;
         endMilliSec1 = System.currentTimeMillis();
         // 打印花费时间
@@ -577,7 +580,7 @@ public class TotalController {
     ) {
         ModelAndView m = new ModelAndView();
         List<Map<String, Object>> results1 = mysqlService.FindMovieCountByPositiveReviews();
-        List<Map<String, Object>> temps = results1.subList(1,2);
+        List<Map<String, Object>> temps = results1.subList(1, 2);
         Set<String> keys1 = temps.get(0).keySet();
         m.addObject("time1", results1.get(0).get("time"));
         m.addObject("keys1", keys1);
@@ -585,7 +588,7 @@ public class TotalController {
 
         long startMilliSec1 = 0;
         startMilliSec1 = System.currentTimeMillis();
-        List<Map<String,Object>> results2=neo4jService.getMovieWithPositiveComment();
+        List<Map<String, Object>> results2 = neo4jService.getMovieWithPositiveComment();
         long endMilliSec1 = 0;
         endMilliSec1 = System.currentTimeMillis();
         // 打印花费时间
@@ -601,10 +604,10 @@ public class TotalController {
         m.addObject("keys2", keys2);
         m.addObject("results2", results2);
 
-        int a=1;
-        try  {
+        int a = 1;
+        try {
             a = Integer.parseInt(Positive);
-        }  catch  (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             e.printStackTrace();
         }
         // 开始时间
@@ -633,20 +636,31 @@ public class TotalController {
 
     @GetMapping(path = "/queryForAll")
     public ModelAndView queryForAll() {
-        ModelAndView m=new ModelAndView();
+        ModelAndView m = new ModelAndView();
         m.setViewName("test");
         return m;
     }
 
     @PostMapping(path = "/queryForAll")
     public List<String> queryForAll(
-            String name
+            String year,
+            String month,
+            String quarterly,
+            String movieName,
+            String actorName,
+            String DirectorName,
+            String actorName1,
+            String num,
+            String type,
+            String grade,
+            String Positive
     ) {
-        String[] results=new String[3];
-        
-        results[0]="1";
-        results[1]="1";
-        results[2]="1";
+        String[] results = new String[3];
+//if(year!=""&&month!=""&&quarterly!=""&&movieName!=""&&actorName!=""&&DirectorName!=""&&actorName1!=""&&num!=""&&type!=""&&grade!=""&&Positive!="")
+
+        results[0] = "1";
+        results[1] = "1";
+        results[2] = "1";
         return List.of(results);
     }
 
