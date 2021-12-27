@@ -692,7 +692,7 @@ public class TotalController {
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
-        results[1] = "1";
+        results[1] = results[0];
         results[2] = "1";
         return List.of(results);
 

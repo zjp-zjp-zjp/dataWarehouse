@@ -42,11 +42,12 @@ public class MysqlService {
             Map<String, Object> hashMap = new HashMap<>();
             hashMap.put("time", endMilliSec - startMilliSec);
             list.add(hashMap);
-            while (resultSet.next()) {
-                Map<String, Object> map = new HashMap<>();
+            Map<String, Object> map = new HashMap<>();
+            if(resultSet.next())
                 map.put("count", resultSet.getInt(1));
-                list.add(map);
-            }
+            else
+                map.put("count",0);
+            list.add(map);
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
@@ -73,11 +74,12 @@ public class MysqlService {
             Map<String, Object> hashMap = new HashMap<>();
             hashMap.put("time", endMilliSec - startMilliSec);
             list.add(hashMap);
-            while (resultSet.next()) {
-                Map<String, Object> map = new HashMap<>();
+            Map<String, Object> map = new HashMap<>();
+            if(resultSet.next())
                 map.put("count", resultSet.getInt(1));
-                list.add(map);
-            }
+            else
+                map.put("count",0);
+            list.add(map);
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
@@ -107,11 +109,12 @@ public class MysqlService {
             Map<String, Object> hashMap = new HashMap<>();
             hashMap.put("time", endMilliSec - startMilliSec);
             list.add(hashMap);
-            while (resultSet.next()) {
-                Map<String, Object> map = new HashMap<>();
+            Map<String, Object> map = new HashMap<>();
+            if(resultSet.next())
                 map.put("count", resultSet.getInt(1));
-                list.add(map);
-            }
+            else
+                map.put("count",0);
+            list.add(map);
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
@@ -136,11 +139,12 @@ public class MysqlService {
             Map<String, Object> hashMap = new HashMap<>();
             hashMap.put("time", endMilliSec - startMilliSec);
             list.add(hashMap);
-            while (resultSet.next()) {
-                Map<String, Object> map = new HashMap<>();
+            Map<String, Object> map = new HashMap<>();
+            if(resultSet.next())
                 map.put("count", resultSet.getInt(1));
-                list.add(map);
-            }
+            else
+                map.put("count",0);
+            list.add(map);
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
@@ -167,12 +171,15 @@ public class MysqlService {
             Map<String, Object> hashMap = new HashMap<>();
             hashMap.put("time", endMilliSec - startMilliSec);
             list.add(hashMap);
-            while (resultSet.next()) {
-                Map<String, Object> map = new HashMap<>();
+            Map<String, Object> map = new HashMap<>();
+            if (resultSet.next()) {
                 map.put("director", resultSet.getString("director"));
                 map.put("count", resultSet.getInt("count"));
-                list.add(map);
+            }else{
+                map.put("director", "");
+                map.put("count", 0);
             }
+            list.add(map);
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
@@ -199,12 +206,15 @@ public class MysqlService {
             Map<String, Object> hashMap = new HashMap<>();
             hashMap.put("time", endMilliSec - startMilliSec);
             list.add(hashMap);
-            while (resultSet.next()) {
-                Map<String, Object> map = new HashMap<>();
+            Map<String, Object> map = new HashMap<>();
+            if (resultSet.next()) {
                 map.put("actor", resultSet.getString("actor"));
                 map.put("count", resultSet.getInt("count"));
-                list.add(map);
+            }else{
+                map.put("actor", "");
+                map.put("count", 0);
             }
+            list.add(map);
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
@@ -231,13 +241,17 @@ public class MysqlService {
             Map<String, Object> hashMap = new HashMap<>();
             hashMap.put("time", endMilliSec - startMilliSec);
             list.add(hashMap);
-            while (resultSet.next()) {
-                Map<String, Object> map = new HashMap<>();
+            Map<String, Object> map = new HashMap<>();
+            if (resultSet.next()) {
                 map.put("actor", resultSet.getString("actor"));
                 map.put("director", resultSet.getString("director"));
-                map.put("count", resultSet.getString("count"));
-                list.add(map);
+                map.put("count", resultSet.getInt("count"));
+            }else{
+                map.put("actor", "");
+                map.put("director", resultSet.getString("director"));
+                map.put("count", 0);
             }
+            list.add(map);
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
@@ -264,13 +278,17 @@ public class MysqlService {
             Map<String, Object> hashMap = new HashMap<>();
             hashMap.put("time", endMilliSec - startMilliSec);
             list.add(hashMap);
-            while (resultSet.next()) {
-                Map<String, Object> map = new HashMap<>();
+            Map<String, Object> map = new HashMap<>();
+            if (resultSet.next()) {
                 map.put("actor", resultSet.getString("actor"));
                 map.put("actor_1", resultSet.getString("actor_1"));
-                map.put("count", resultSet.getString("count"));
-                list.add(map);
+                map.put("count", resultSet.getInt("count"));
+            }else{
+                map.put("actor", "");
+                map.put("actor_1", "");
+                map.put("count", 0);
             }
+            list.add(map);
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
@@ -295,12 +313,12 @@ public class MysqlService {
             Map<String, Object> hashMap = new HashMap<>();
             hashMap.put("time", endMilliSec - startMilliSec);
             list.add(hashMap);
-            while (resultSet.next()) {
-                Map<String, Object> map = new HashMap<>();
-                map.put("type", type);
-                map.put("count", resultSet.getString(1));
-                list.add(map);
-            }
+            Map<String, Object> map = new HashMap<>();
+            if(resultSet.next())
+                map.put("count", resultSet.getInt(1));
+            else
+                map.put("count",0);
+            list.add(map);
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
@@ -325,11 +343,12 @@ public class MysqlService {
             Map<String, Object> hashMap = new HashMap<>();
             hashMap.put("time", endMilliSec - startMilliSec);
             list.add(hashMap);
-            while (resultSet.next()) {
-                Map<String, Object> map = new HashMap<>();
-                map.put("count", resultSet.getString(1));
-                list.add(map);
-            }
+            Map<String, Object> map = new HashMap<>();
+            if(resultSet.next())
+                map.put("count", resultSet.getInt(1));
+            else
+                map.put("count",0);
+            list.add(map);
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
