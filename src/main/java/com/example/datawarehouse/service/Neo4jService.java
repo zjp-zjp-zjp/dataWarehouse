@@ -66,5 +66,20 @@ public class Neo4jService {
     public List<Map<String, Object>> getMovieByYearAndQuarterly(String year,String quarterly) {
         return neo4jRepository.findMovieByYearAndQuarterly(year,quarterly);
     }
+    public String getAll(
+            String year,
+            String month,
+            String quarterly,
+            String movieName,
+            String actorName,
+            String DirectorName,
+            String actorName1,
+            String num,
+            String type,
+            String grade,
+            String Positive
+    ){
+        return neo4jRepository.findAll(year,month,quarterly,movieName,actorName,DirectorName,actorName1,num,type,grade,Positive);
+    }
 }
 

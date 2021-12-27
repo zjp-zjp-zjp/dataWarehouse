@@ -660,7 +660,7 @@ public class TotalController {
 
         results[0] = "1";
         results[1] = "1";
-        results[2] = "1";
+        results[2] = neo4jService.getAll(year,month,quarterly,movieName,actorName,DirectorName,actorName1,num,type,grade,Positive);
         return List.of(results);
     }
 
