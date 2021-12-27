@@ -693,7 +693,7 @@ public class TotalController {
             e.printStackTrace();
         }
         results[1] = results[0];
-        results[2] = "1";
+        results[2] = neo4jService.getAll(year,month,quarterly,movieName,actorName,DirectorName,actorName1,num,type,grade,Positive);
         return List.of(results);
 
     }
