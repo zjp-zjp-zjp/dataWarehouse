@@ -15,9 +15,9 @@ public class MysqlService {
 
     public MysqlService() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/user_db", "root", "123456");
+                    "jdbc:mysql://47.101.197.145:3306/user_db", "root", "password123A.");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }

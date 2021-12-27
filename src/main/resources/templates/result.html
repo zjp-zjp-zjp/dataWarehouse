@@ -137,29 +137,29 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">关系型数据库<br><h6>消耗时间(sql执行时间+传输时间)(单位：ms):<h6 th:text="${time}"></h6></h6></h4>
+                            <h4 class="card-title">关系型数据库<br><h6>消耗时间(sql执行时间+传输时间)(单位：ms):<h6 th:text="${time1}"></h6></h6></h4>
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered zero-configuration">
                                     <thead>
                                     <tr>
-                                        <div th:each="i:${#numbers.sequence(0, keys.size()-1)}">
-                                            <th th:text="${keys[i]}">
+                                        <div th:each="i:${#numbers.sequence(0, keys1.size()-1)}">
+                                            <th th:text="${keys1[i]}">
                                             </th>
                                         </div>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr th:each="result : ${results}">
-                                        <div th:each="i:${#numbers.sequence(0, keys.size()-1)}">
-                                            <td th:text="${result[keys[i]]}">
+                                    <tr th:each="result : ${results1}">
+                                        <div th:each="i:${#numbers.sequence(0, keys1.size()-1)}">
+                                            <td th:text="${result[keys1[i]]}">
                                             </td>
                                         </div>
                                     </tr>
                                     </tbody>
                                     <tfoot>
                                     <tr>
-                                        <div th:each="i:${#numbers.sequence(0, keys.size()-1)}">
-                                            <th th:text="${keys[i]}">
+                                        <div th:each="i:${#numbers.sequence(0, keys1.size()-1)}">
+                                            <th th:text="${keys1[i]}">
                                             </th>
                                         </div>
                                     </tr>
@@ -219,29 +219,29 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">图数据库<br><h6>消耗时间(sql执行时间+传输时间)(单位：ms):<h6 th:text="${time}"></h6></h6></h4>
+                            <h4 class="card-title">图数据库<br><h6>消耗时间(sql执行时间+传输时间)(单位：ms):<h6 th:text="${time2}"></h6></h6></h4>
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered zero-configuration">
                                     <thead>
                                     <tr>
-                                        <div th:each="i:${#numbers.sequence(0, keys.size()-1)}">
-                                            <th th:text="${keys[i]}">
+                                        <div th:each="i:${#numbers.sequence(0, keys2.size()-1)}">
+                                            <th th:text="${keys2[i]}">
                                             </th>
                                         </div>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr th:each="result : ${results}">
-                                        <div th:each="i:${#numbers.sequence(0, keys.size()-1)}">
-                                            <td th:text="${result[keys[i]]}">
+                                    <tr th:each="result : ${results2}">
+                                        <div th:each="i:${#numbers.sequence(0, keys2.size()-1)}">
+                                            <td th:text="${result[keys2[i]]}">
                                             </td>
                                         </div>
                                     </tr>
                                     </tbody>
                                     <tfoot>
                                     <tr>
-                                        <div th:each="i:${#numbers.sequence(0, keys.size()-1)}">
-                                            <th th:text="${keys[i]}">
+                                        <div th:each="i:${#numbers.sequence(0, keys2.size()-1)}">
+                                            <th th:text="${keys2[i]}">
                                             </th>
                                         </div>
                                     </tr>
@@ -292,10 +292,14 @@
 <script>
 <!--    时间获取以及转化   -->
     var time = [[${time}]]
+var time1 = [[${time1}]]
+var time2 = [[${time2}]]
     time=parseInt(time)
+time1=parseInt(time1)
+time2=parseInt(time2)
     new Chartist.Bar('#distributed-series', {
         labels: ['关系型数据库', '分布式数据库', '图数据库'],
-        series: [time,time,time]
+        series: [time1,time,time2]
     }, {
         distributeSeries: true,
         plugins: [
